@@ -1,7 +1,6 @@
 const domain = window.location.origin;
 const current_page = window.location.pathname;
 let assignments = null;
-let grades = null;
 let options = {
     get_grades: true
 };
@@ -36,11 +35,12 @@ function isCanvas() {
     return false;
 }
 
-function getGrades() {
+async function getGrades() {
     let gradeInfo = [];
 
     if (options.get_grades === true && isCanvas()) {
-        fetchData(`${domain}/api/v1/courses?include[]=concluded&include[]=total_scores&include[]=computed_current_score&per_page=100`).then((grades) => {
+        let grades = await fetchData(`${domain}/api/v1/courses?include[]=concluded&include[]=total_scores&include[]=computed_current_score&per_page=100`);
+        try {
             for (let i = 0; i < grades.length; i++) {
                 if (!grades[i]["name"]) {
                     continue;
@@ -52,10 +52,10 @@ function getGrades() {
                     gradeInfo.push(grades[i]["name"] + " doesn't yet have a grade which is not a bad thing");
                 }
             }
-            console.log(gradeInfo.join(", a seperate class is, "));
-        })
-        .catch((err) => {
+            return gradeInfo.join(", a seperate class is, ");
+        } catch(err) {
             console.log(err)
-        });
+            return "Error Fetching Grades";
+        }
     }
 }

@@ -1,0 +1,9 @@
+{
+    "name": "Canvas+",
+    "description": "Canvas with additional AI features",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+        "default_popup": "popup.html"
+    }
+}

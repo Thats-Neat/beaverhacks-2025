@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     sendBtn.addEventListener("click", function() {
         const text = textInput.value;
+        textInput.value = "";
         getGrades().then((res) => {
             grade_prompt = res;
             getAssignments().then((res) => {

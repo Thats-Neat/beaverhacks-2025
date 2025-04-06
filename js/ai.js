@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
-dotenv.config(); // Load .env variables before accessing them
+dotenv.config();
 
-const apiKey = process.env.GEMINI_API_KEY; // This should now have the correct key
+const apiKey = process.env.GEMINI_API_KEY;
 
 const url =
   "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro-latest:generateContent?key=" +
@@ -16,37 +16,24 @@ const body = {
     {
       parts: [
         {
-          text: "" /*elem.textContent || elem.InnerText*/,
+          text: "What is your name?"
         },
       ],
     },
   ],
 };
-document.addEventListener("DOMContentLoaded", () => {
-  const button = document.getElementById("send-button");
-  const inputElement = document.getElementById("input");
 
-  async function main() {
-    const res = await fetch(url, {
-      method: "POST",
-      headers,
-      body: JSON.stringify(body),
-    });
-    const json = await res.json();
-    const text =
-      json.candidates?.[0]?.content?.parts?.[0]?.text || "No response";
-    console.log("AI RESPONCE", text);
 
-    if (responceElement) {
-      responceElement.value = text;
-    } else {
-      console.error("Response element not found");
-    }
-  }
-  button.addEventListener("click", () => {
-    const input = document.getElementById("input").value;
-    body.contents[0].parts[0].text = input;
-    main();
+async function main() {
+  const res = await fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
   });
-});
-//main();
+  const json = await res.json();
+  console.log(json);
+  const text = json.candidates?.[0]?.content?.parts?.[0]?.text || "No response";
+  console.log("AI RESPONCE: ", text);
+}
+
+main();

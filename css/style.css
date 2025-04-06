@@ -79,3 +79,35 @@ body {
   margin-bottom:25px;
   transform: translateY(-7px);
 }
+
+/* =============================== */
+/* ✅ SETTINGS PANEL STYLES BELOW */
+/* =============================== */
+
+.settings-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: #ffffff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.settings-panel.open {
+  transform: translateX(0);
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}

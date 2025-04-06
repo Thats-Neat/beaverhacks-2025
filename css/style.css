@@ -1,0 +1,81 @@
+body {
+  margin: 0px;
+}
+
+.top-bar {
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Lato';
+  	font-size: 26px;
+  	color: #ffffff;
+    background-color: #c83c30;
+}
+.setting-button{
+  border-radius: 75%;
+  margin-top:50px;
+  margin-bottom:50px;
+}
+.chat-container{
+  width: 100%;
+  margin-top: 30px;
+}
+.canvas-msg-div{
+  display: flex;
+  margin-left: 0.5rem;
+}
+.canvas-msg-text{
+  font-size: 16px;
+  width: 10rem;
+  display: flex;
+  flex-direction: column;
+}
+.canvas-msg-container{
+  background: #262626;
+  border-radius: 0.5rem;
+  color: #fff;
+  height: fit-content;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  margin: 0.12rem 0.5rem;
+}
+.user-msg-div{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1rem;
+}
+.user-msg-text{
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.user-msg-container{
+  background: #c83c30;
+  background-attachment: fixed;
+  color: #fff;
+  border-radius: 0.5rem 0.2rem 0.2rem 0.5rem;
+  height: fit-content;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+}
+
+/* https://stackoverflow.com/questions/4954252/css-textarea-that-expands-as-you-type-text */
+.textareaElement {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 30px;
+  width: 300px;
+  min-height: 27px;
+  border: 1px solid #ccc;
+  max-height: 150px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.send-msg-button{
+  border-radius: 75%;
+  margin-top:25px;
+  margin-bottom:25px;
+  transform: translateY(-7px);
+}

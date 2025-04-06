@@ -75,15 +75,17 @@ async function getAssignments() {
 
     let assignment_info = [];
 
+    let today = new Date();
+    const msInOneWeek = 7 * 24 * 60 * 60 * 1000;
+
     if (options.get_assignments === true && isCanvas()) {
-        // shouldn't hardcode date
         let assignments = await fetchData(`${domain}/api/v1/planner/items?start_date=2025-01-25T14:48:00.000Z&per_page=50`);
 
         try {
             for (let i = 0; i < assignments.length; i++) {
-                // get assignments that are currently avaible
-                console.log(assignments[i])
-                if (assignments[i].plannable_type === 'assignment' && !assignments[i].submissions.graded) {
+                let futureDate = new Date(assignments[i].plannable_date);
+                let timeDiff = futureDate.getTime() - today.getTime();
+                if (assignments[i].plannable_type === 'assignment' && !assignments[i].submissions.graded && timeDiff > 0 && timeDiff <= msInOneWeek) {
                     assignment_names = assignments[i].plannable.title;
                     assignment_grades = assignments[i].plannable.points_possible;
                

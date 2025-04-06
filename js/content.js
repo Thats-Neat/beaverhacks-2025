@@ -72,6 +72,7 @@ async function getAssignments() {
     let assignment_names = null;
     let assignment_grades = null;
     let assignment_details = null;
+    let assignment_due = null;
 
     let assignment_info = [];
 
@@ -83,6 +84,24 @@ async function getAssignments() {
 
         try {
             for (let i = 0; i < assignments.length; i++) {
+
+                if (assignments[i].plannable.due_at) {
+                    rawDueDate = assignments[i].plannable.due_at;
+                    assignment_due = new Date(rawDueDate);
+                    assignment_due = assignment_due.toLocaleString("en-US", {
+                        timeZone: "America/Los_Angeles",
+                        timeZoneName: "short",
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                        hour: "numeric",
+                        minute: "2-digit",
+                        second: "2-digit"
+                    });
+                } else {
+                    assignment_due = "Unknown due date";
+                }
+                
                 let futureDate = new Date(assignments[i].plannable_date);
                 let timeDiff = futureDate.getTime() - today.getTime();
                 if (assignments[i].plannable_type === 'assignment' && !assignments[i].submissions.graded && timeDiff > 0 && timeDiff <= msInOneWeek) {
@@ -100,15 +119,12 @@ async function getAssignments() {
                     } else {
                         assignment_details = "No additional details were added for this assignment.";
                     }
-                    assignment_info.push(`The Assignment named '${assignment_names}' has the amount of points ${assignment_grades} with the following instructions '${assignment_details}'`)
+                    assignment_info.push(`The Assignment named '${assignment_names}' has the amount of points ${assignment_grades} with the following instructions '${assignment_details}' due at '${assignment_due}'`)
                 }
             }
-            console.log(assignment_info);
         } catch(err) {
             console.log(err);
             return "Error Fetching Assignments";
         }
     }
 }
-
-getAssignments();

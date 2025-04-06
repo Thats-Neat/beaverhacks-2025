@@ -28,7 +28,6 @@ export async function AICall(toAsk) {
     body: JSON.stringify(body),
   });
   const json = await res.json();
-  console.log(json);
   const text = json.candidates?.[0]?.content?.parts?.[0]?.text || "No response";
-  console.log(text);
+  return text;
 }

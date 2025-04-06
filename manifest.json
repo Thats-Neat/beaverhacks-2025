@@ -1,15 +1,18 @@
 {
-    "name": "Canvas+",
-    "description": "Canvas with additional AI features",
-    "version": "1.0",
-    "manifest_version": 3,
-    "action": {
-        "default_popup": "html/popup.html"
-    },
-    "content_scripts": [
-        {
-            "matches": ["https://*/*"],
-            "js": ["js/content.js"]
-        }
-    ]
+  "name": "Canvas+",
+  "description": "Canvas with additional AI features",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "html/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*/*"],
+      "js": ["js/content.js"]
+    }
+  ],
+  "icons": {
+    "128": "images/charleycanvas.png"
+  }
 }

@@ -1,42 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../css/style.css" />
-  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
-  <title>Canvas+</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <title>Canvas+</title>
 </head>
 <body>
-  <div class="top-bar">
-    <h1>Canvas+</h1>
-     <button class="setting-button" aria-label="settings">
-       <img src="https://www.iconninja.com/files/853/928/985/gear-icon.png" alt="settings" width="25" height="25" border="0"></button>
-  </div>
-  <div class="chat-container">
-  	<div class="user-msg-div">
-      <div class="user-msg-container">
-        <div class="user-msg-text"> Example User Input </div>
-      </div>
+    <div class="top-bar">
+        <h1>Canvas+</h1>
+        <button class="setting-button" aria-label="settings">
+            <img src="https://www.iconninja.com/files/853/928/985/gear-icon.png" alt="settings" width="80" height="80" border="0">
+        </button>
     </div>
-    
-  <div class="canvas-msg-div">
-    <div class="canvas-msg-container">
-      <div class="canvas-msg-text"> Example Response </div>
+
+
+    <div class="chat-container-wrapper">
+
+        <!-- Message Pair 1 -->
+        <div class="user-msg-div">
+            <div class="user-msg-container">
+                <div class="user-msg-text"> Example User Input </div>
+            </div>
+        </div>
+        <div class="canvas-msg-div">
+            <div class="canvas-msg-container">
+                <div class="canvas-msg-text"> example canvas output</div>
+            </div>
+        </div>
+
+        <!-- Message Pair 2 -->
+        <div class="user-msg-div">
+            <div class="user-msg-container">
+                <div class="user-msg-text"> kurt cobain pov </div>
+            </div>
+        </div>
+        <div class="canvas-msg-div">
+            <div class="canvas-msg-container">
+                <div class="canvas-msg-text"> im going to kill myself tonight clal it mother fuckers</div>
+            </div>
+        </div>
+
     </div>
-    </div>
-    
-  
-    </div>
-	<input id="text-input" class="textareaElement" style="display: inline-block; width: 80%;" contenteditable>
-  </input>
-    <div class="send-msg-button" style="display: inline-block; width: 9%;">
-      <button id="send-button">
-        <img src="https://www.iconninja.com/files/976/97/258/send-icon.png" width="25" height="25" border="0">
-      </button> 
+
+
+
+    <div class="inputArea">
+        <div class="textareaElement" style="display: inline-block; width: 75%;" contenteditable>
+        </div>
+        <div class="send-msg-button" style="display: inline-block; width: 10%;">
+            <button id="send-button">
+                <img src="https://www.iconninja.com/files/976/97/258/send-icon.png" width="25" height="25" border="0">
+            </button>
+        </div>
     </div>
 	<script type="module" src="../js/popup.js"></script>
 </body>
-
 </html>

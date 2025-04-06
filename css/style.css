@@ -1,10 +1,9 @@
 body {
     margin: 0px;
-    width: 400px;
-    height: 100vh; 
+    width: 600px;
+    height: 400px; 
     display: flex;
-    flex-direction: column;
-}
+    flex-direction: column; 
 
 .top-bar {
     padding: 0px 35px;
@@ -26,12 +25,17 @@ body {
 
 .chat-container-wrapper {
     flex-grow: 1; 
-    overflow-y: auto; 
-    max-height: calc(100vh - 180px); 
+    overflow-y: auto;
+    max-height: calc(100vh - 180px); /* Adjust height to fit between top bar and input area */
 }
 
 .chat-container {
-    width: 100%;
+    width: 600px; 
+	overflow-x: hidden; 
+	overflow-y: auto;
+  	max-height: 999999999px;
+  	box-sizing: border-box;
+  	
 }
 
 .canvas-msg-div {
@@ -41,7 +45,7 @@ body {
 
 .canvas-msg-text {
     font-size: 16px;
-    width: 10rem;
+    width: 16rem;
     display: flex;
     flex-direction: column;
 }
@@ -64,6 +68,7 @@ body {
 
 .user-msg-text {
     font-size: 16px;
+ 	max-width: 16rem;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -83,21 +88,21 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
-    max-width: 400px;
-
+    max-width: 600px;
+    background-color: white; 
 }
 
 .textareaElement {
     margin-left: 1rem;
     margin-right: 1rem;
     margin-top: 30px;
-    width: 75%;
+    width: 75%; 
     min-height: 27px;
     border: 1px solid #ccc;
     max-height: 150px;
     overflow-x: hidden;
     overflow-y: auto;
-    display: inline-block;
+    display: inline-block; 
 }
 
 .send-msg-button {
@@ -106,5 +111,5 @@ body {
     margin-bottom: 25px;
     transform: translateY(-7px);
     width: 10%; 
-    display: inline-block; 
+    display: inline-block;
 }

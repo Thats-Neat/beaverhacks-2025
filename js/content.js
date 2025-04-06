@@ -1,10 +1,8 @@
 const domain = window.location.origin;
 const current_page = window.location.pathname;
-let assignments = null;
 let options = {
     get_grades: true
 };
-let gradeInfoString = null;
 
 async function fetchData(url) {
     let response = await fetch(url, {

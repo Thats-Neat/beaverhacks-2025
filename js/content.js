@@ -42,11 +42,10 @@ function isCanvas() {
     return false;
 }
 
-async function getGrades() {
+export async function getGrades() {
     let gradeInfo = [];
-
-    if (options.get_grades === true && isCanvas()) {
-        let grades = await fetchData(`${domain}/api/v1/courses?include[]=concluded&include[]=total_scores&include[]=computed_current_score&per_page=100`);
+    if (options.get_grades === true) {
+        let grades = await fetchData(`https://canvas.oregonstate.edu/api/v1/courses?include[]=concluded&include[]=total_scores&include[]=computed_current_score&per_page=100`);
         try {
             for (let i = 0; i < grades.length; i++) {
                 if (!grades[i]["name"] || grades[i].concluded) {
@@ -58,7 +57,6 @@ async function getGrades() {
                 else {
                     gradeInfo.push(grades[i]["name"] + " doesn't yet have a grade which is not a bad thing");
                 }
-                console.log(grades[i]);
             }
             return gradeInfo.join(", a seperate class is, ");
         } catch(err) {
@@ -68,7 +66,7 @@ async function getGrades() {
     }
 }
 
-async function getAssignments() {
+export async function getAssignments() {
     let assignment_names = null;
     let assignment_grades = null;
     let assignment_details = null;
@@ -79,14 +77,14 @@ async function getAssignments() {
     let today = new Date();
     const msInOneWeek = 7 * 24 * 60 * 60 * 1000;
 
-    if (options.get_assignments === true && isCanvas()) {
-        let assignments = await fetchData(`${domain}/api/v1/planner/items?start_date=2025-01-25T14:48:00.000Z&per_page=50`);
+    if (options.get_assignments === true) {
+        let assignments = await fetchData(`https://canvas.oregonstate.edu/api/v1/planner/items?start_date=2025-01-25T14:48:00.000Z&per_page=50`);
 
         try {
             for (let i = 0; i < assignments.length; i++) {
 
                 if (assignments[i].plannable.due_at) {
-                    rawDueDate = assignments[i].plannable.due_at;
+                    let rawDueDate = assignments[i].plannable.due_at;
                     assignment_due = new Date(rawDueDate);
                     assignment_due = assignment_due.toLocaleString("en-US", {
                         timeZone: "America/Los_Angeles",
@@ -108,7 +106,7 @@ async function getAssignments() {
                     assignment_names = assignments[i].plannable.title;
                     assignment_grades = assignments[i].plannable.points_possible;
                
-                    let html_fetch = await fetchDataHTML(`${domain}${assignments[i].html_url}`);
+                    let html_fetch = await fetchDataHTML(`https://canvas.oregonstate.edu${assignments[i].html_url}`);
 
                     let parser = new DOMParser();
                     let doc = parser.parseFromString(html_fetch, "text/html");
@@ -120,8 +118,10 @@ async function getAssignments() {
                         assignment_details = "No additional details were added for this assignment.";
                     }
                     assignment_info.push(`The Assignment named '${assignment_names}' has the amount of points ${assignment_grades} with the following instructions '${assignment_details}' due at '${assignment_due}'`)
+                    
                 }
             }
+            return assignment_info.join(". ");
         } catch(err) {
             console.log(err);
             return "Error Fetching Assignments";

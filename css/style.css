@@ -1,37 +1,39 @@
 body {
   margin: 0px;
+  width: 800px;
+  height: 600px;
 }
 
 .top-bar {
-    padding: 0px 35px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: 'Lato';
-  	font-size: 16px;
-  	color: #ffffff;
-    background-color: #c83c30;
+  padding: 0px 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Lato";
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #c83c30;
 }
-.setting-button{
+.setting-button {
   border-radius: 75%;
-  margin-top:5px;
-  margin-bottom:5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
-.chat-container{
+.chat-container {
   width: 100%;
   margin-top: 30px;
 }
-.canvas-msg-div{
+.canvas-msg-div {
   display: flex;
   margin-left: 0.5rem;
 }
-.canvas-msg-text{
+.canvas-msg-text {
   font-size: 16px;
   width: 10rem;
   display: flex;
   flex-direction: column;
 }
-.canvas-msg-container{
+.canvas-msg-container {
   background: #262626;
   border-radius: 0.5rem;
   color: #fff;
@@ -40,18 +42,18 @@ body {
   padding: 0.5rem 1rem;
   margin: 0.12rem 0.5rem;
 }
-.user-msg-div{
+.user-msg-div {
   display: flex;
   justify-content: flex-end;
   margin-right: 1rem;
 }
-.user-msg-text{
+.user-msg-text {
   font-size: 16px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
-.user-msg-container{
+.user-msg-container {
   background: #c83c30;
   background-attachment: fixed;
   color: #fff;
@@ -73,9 +75,25 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
 }
-.send-msg-button{
+.send-msg-button {
   border-radius: 75%;
-  margin-top:25px;
-  margin-bottom:25px;
-  transform: translateY(-7px);
+  margin-top: 25px;
+  margin-bottom: 25px;
+  transform: translateY(7px);
+}
+.typewriter {
+  overflow: hidden; /* Ensures the content is hidden until revealed */
+  border-right: 0.15em solid orange; /* The cursor (optional) */
+  white-space: nowrap; /* Prevents text from wrapping */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  animation: typing 1s steps(40, end) 1s 1 normal;
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }

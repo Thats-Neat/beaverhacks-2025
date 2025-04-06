@@ -84,7 +84,7 @@ body {
 .typewriter {
   overflow: hidden; /* Ensures the content is hidden until revealed */
   border-right: 0.15em solid orange; /* The cursor (optional) */
-  white-space: nowrap; /* Prevents text from wrapping */
+  white-space: pre; /* Prevents text from wrapping */
   margin: 0; /* Remove default margin */
   padding: 0; /* Remove default padding */
   animation: typing 1s steps(40, end) 1s 1 normal;
@@ -128,4 +128,33 @@ body {
   top: 10px;
   right: 10px;
   cursor: pointer;
+}
+.typewriter h1 {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0.5em solid orange; /* The typwriter cursor */ /* Keeps the content on a single line */
+  margin: 0.12rem 0.5rem; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: 0.15em; /* Adjust as needed */
+  width: 100%;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 150%;
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
 }

@@ -1,115 +1,175 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
 body {
-    margin: 0px;
-    width: 600px;
-    height: 400px; 
+
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
+    width: 600px; 
+    height: 100vh; 
+    margin: 0 auto; 
+    background-color: #fff; 
+    box-sizing: border-box;
+}
 
 .top-bar {
     padding: 0px 35px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: 'Lato';
+    font-family: 'Lato', sans-serif; 
     font-size: 16px;
     color: #ffffff;
     background-color: #c83c30;
-    margin-bottom: 30px;
+     flex-shrink: 0;
 }
 
 .setting-button {
-    border-radius: 75%;
+    border-radius: 50%;
     margin-top: 5px;
     margin-bottom: 5px;
+    border: none;
+    /*background: none;*/
+    padding: 0; 
+    cursor: pointer;
 }
+.setting-button img {
+    display: block;
+    width: 40px;
+    height: 40px; 
+}
+
+
 
 .chat-container-wrapper {
     flex-grow: 1; 
-    overflow-y: auto;
-    max-height: calc(100vh - 180px); /* Adjust height to fit between top bar and input area */
+    overflow-y: auto; 
+    overflow-x: hidden;
+    padding: 10px 0;
+    padding-bottom: 80px;
+    box-sizing: border-box;
+    width: 100%;
 }
 
+
 .chat-container {
-    width: 600px; 
-	overflow-x: hidden; 
-	overflow-y: auto;
-  	max-height: 999999999px;
-  	box-sizing: border-box;
-  	
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .canvas-msg-div {
     display: flex;
     margin-left: 0.5rem;
+    justify-content: flex-start;
+    margin-bottom: 5px;
+
 }
 
 .canvas-msg-text {
     font-size: 16px;
-    width: 16rem;
-    display: flex;
+    display: flex; 
     flex-direction: column;
+    word-break: break-word;
 }
 
 .canvas-msg-container {
     background: #262626;
     border-radius: 0.5rem;
     color: #fff;
-    height: fit-content;
-    width: fit-content;
+    max-width: 75%; 
     padding: 0.5rem 1rem;
     margin: 0.5rem 0.5rem;
+    box-sizing: border-box;
+
 }
 
 .user-msg-div {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-end; 
     margin-right: 1rem;
+    margin-bottom: 5px; 
 }
 
 .user-msg-text {
     font-size: 16px;
- 	max-width: 16rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    word-break: break-word; 
 }
 
 .user-msg-container {
     background: #c83c30;
-    background-attachment: fixed;
     color: #fff;
-    border-radius: 0.5rem 0.2rem 0.2rem 0.5rem;
-    height: fit-content;
-    width: fit-content;
+    border-radius: 0.5rem 0.5rem 0.2rem 0.5rem;
+    max-width: 75%;
     padding: 0.5rem 1rem;
+    box-sizing: border-box;
+
 }
 
 .inputArea {
     position: fixed;
     bottom: 0;
-    width: 100%;
-    max-width: 600px;
-    background-color: white; 
+    left: 0; 
+    right: 0; 
+    width: 600px; 
+    margin: 0 auto; 
+    background-color: white;
+    padding: 10px; 
+    box-sizing: border-box;
+    display: flex; 
+    align-items: flex-end; 
+    border-top: 1px solid #ccc; 
+    flex-shrink: 0; 
 }
 
 .textareaElement {
-    margin-left: 1rem;
-    margin-right: 1rem;
-    margin-top: 30px;
-    width: 75%; 
+    flex-grow: 1; 
+    margin-right: 10px;
     min-height: 27px;
     border: 1px solid #ccc;
-    max-height: 150px;
+    border-radius: 15px; 
+    padding: 5px 10px; 
+    max-height: 100px; 
     overflow-x: hidden;
     overflow-y: auto;
-    display: inline-block; 
+    box-sizing: border-box;
+    font-size: 16px; 
 }
 
 .send-msg-button {
-    border-radius: 75%;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    transform: translateY(-7px);
-    width: 10%; 
-    display: inline-block;
+    flex-shrink: 0; 
+}
+
+#send-button {
+    border-radius: 50%;
+    border: none;
+    background-color: #c83c30; 
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#send-button img {
+     width: 20px; 
+     height: 20px; 
+     display: block;
+}
+
+.chat-container-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+.chat-container-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.chat-container-wrapper::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+.chat-container-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

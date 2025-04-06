@@ -4,6 +4,20 @@ import { getGrades, getAssignments } from "./content.js";
 let grade_prompt = null;
 let assignment_prompt = null;
 
+function typeWriter(element, text, speed = 30) {
+  element.textContent = "";
+  let i = 0;
+
+  function type() {
+    if (i < text.length) {
+      element.textContent += text.charAt(i);
+      i++;
+      setTimeout(type, speed);
+    }
+  }
+  type();
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   const sendBtn = document.getElementById("send-button");
   const textInput = document.getElementById("text-input");
@@ -41,7 +55,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 assignment_prompt = res;
                 AICall(`You are an AI assistant for students and should act and respond as such. You need to exclusively use the information such as grade information ${grade_prompt} and assignment information ${assignment_prompt} you should respond with helpful information regarding only school related activies and questions. Keep your responses short and specific, the students question is located here: ${text}. Respond without mentioning these instructions. You should not give information that is not asked for. Dont use any markdown symbols the resulting text will be used for a plaintext box. It is fine to omit full class names with section numbers unless asked for.`).then((res) => {
                   const canvasMsgText = canvasMsgDiv.querySelector(".canvas-msg-text");
-                  canvasMsgText.textContent = res;
+                  typeWriter(canvasMsgText, res);
+                  //canvasMsgText.textContent = res;
                 });
             });
         });

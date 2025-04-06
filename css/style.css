@@ -1,115 +1,146 @@
 body {
-    margin: 0px;
-    width: 600px;
-    height: 400px; 
-    display: flex;
-    flex-direction: column; 
+  margin: 0px;
+  width: 600px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
 
 .top-bar {
-    padding: 0px 35px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: 'Lato';
-    font-size: 16px;
-    color: #ffffff;
-    background-color: #c83c30;
-    margin-bottom: 30px;
+  padding: 0px 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Lato";
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #c83c30;
+  margin-bottom: 30px;
 }
 
 .setting-button {
-    border-radius: 75%;
-    margin-top: 5px;
-    margin-bottom: 5px;
+  border-radius: 75%;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .chat-container-wrapper {
-    flex-grow: 1; 
-    overflow-y: auto;
-    max-height: calc(100vh - 180px); /* Adjust height to fit between top bar and input area */
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: calc(
+    100vh - 180px
+  ); /* Adjust height to fit between top bar and input area */
 }
 
 .chat-container {
-    width: 600px; 
-	overflow-x: hidden; 
-	overflow-y: auto;
-  	max-height: 999999999px;
-  	box-sizing: border-box;
-  	
+  width: 600px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 999999999px;
+  box-sizing: border-box;
 }
 
 .canvas-msg-div {
-    display: flex;
-    margin-left: 0.5rem;
+  display: flex;
+  margin-left: 0.5rem;
 }
 
 .canvas-msg-text {
-    font-size: 16px;
-    width: 16rem;
-    display: flex;
-    flex-direction: column;
+  font-size: 16px;
+  width: 16rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .canvas-msg-container {
-    background: #262626;
-    border-radius: 0.5rem;
-    color: #fff;
-    height: fit-content;
-    width: fit-content;
-    padding: 0.5rem 1rem;
-    margin: 0.5rem 0.5rem;
+  background: #262626;
+  border-radius: 0.5rem;
+  color: #fff;
+  height: fit-content;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  margin: 0.12rem 0.5rem;
 }
 
 .user-msg-div {
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1rem;
 }
 
 .user-msg-text {
-    font-size: 16px;
- 	max-width: 16rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+  font-size: 16px;
+  max-width: 16rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .user-msg-container {
-    background: #c83c30;
-    background-attachment: fixed;
-    color: #fff;
-    border-radius: 0.5rem 0.2rem 0.2rem 0.5rem;
-    height: fit-content;
-    width: fit-content;
-    padding: 0.5rem 1rem;
+  background: #c83c30;
+  background-attachment: fixed;
+  color: #fff;
+  border-radius: 0.5rem 0.2rem 0.2rem 0.5rem;
+  height: fit-content;
+  width: fit-content;
+  padding: 0.5rem 1rem;
 }
 
 .inputArea {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    max-width: 600px;
-    background-color: white; 
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 600px;
+  background-color: white;
 }
 
 .textareaElement {
-    margin-left: 1rem;
-    margin-right: 1rem;
-    margin-top: 30px;
-    width: 75%; 
-    min-height: 27px;
-    border: 1px solid #ccc;
-    max-height: 150px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    display: inline-block; 
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 30px;
+  width: 75%;
+  min-height: 27px;
+  border: 1px solid #ccc;
+  max-height: 150px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: inline-block;
 }
 
 .send-msg-button {
-    border-radius: 75%;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    transform: translateY(-7px);
-    width: 10%; 
-    display: inline-block;
+  border-radius: 75%;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  transform: translateY(-7px);
+  width: 10%;
+  display: inline-block;
+}
+.typewriter {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0.15em solid orange; /* The typwriter cursor */
+  white-space: wrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: 0.15em; /* Adjust as needed */
+  animation: typing 1s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
 }

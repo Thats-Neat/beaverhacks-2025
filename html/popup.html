@@ -1,32 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/style.css" />
-    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato"
+      rel="stylesheet"
+    />
     <title>Canvas+</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="top-bar">
-        <h1>Canvas+</h1>
-        <button class="setting-button" aria-label="settings">
-            <img src="https://www.iconninja.com/files/853/928/985/gear-icon.png" alt="settings" width="80" height="80" border="0">
-        </button>
+      <h1>Canvas+</h1>
+      <button class="setting-button" aria-label="settings">
+        <img
+          src="https://www.iconninja.com/files/853/928/985/gear-icon.png"
+          alt="settings"
+          width="80"
+          height="80"
+          border="0"
+        />
+      </button>
     </div>
 
     <div class="chat-container-wrapper">
     </div>
 
+
     <div class="inputArea">
-        <input id="text-input" class="textareaElement" style="display: inline-block; width: 75%;" contenteditable>
+        <input id="text-input" class="textareaElement" style="display: inline-block; width: 75%;" contenteditable> 
     </input>
         <div class="send-msg-button" style="display: inline-block; width: 10%;">
-            <button id="send-button">
-                <img src="https://www.iconninja.com/files/976/97/258/send-icon.png" width="25" height="25" border="0">
+            <button>
+                <img src="https://www.iconninja.com/files/976/97/258/send-icon.png" width="25" height="25" border="0" alt="send" />
             </button>
         </div>
     </div>
-	<script type="module" src="../js/popup.js"></script>
-</body>
+
+    <script type="importmap">
+      {"imports": {
+        "@google/generative-ai": "https://esm.run/@google/generative-ai"
+      }}
+    </script>
+    <script type="module" src="../js/ai.js"></script>
+  </body>
 </html>

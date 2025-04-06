@@ -12,8 +12,7 @@
       "js": ["js/content.js"]
     }
   ],
-  "scripts": {
-    "build": "webpack",
-    "start": "webpack serve --open"
+  "icons": {
+    "128": "images/charleycanvas.png"
   }
 }

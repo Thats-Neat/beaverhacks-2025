@@ -87,11 +87,11 @@
             </div>
         </div> -->
       <!-- Message Pair 1 -->
-      <div class="user-msg-div">
+      <!-- <div class="user-msg-div">
         <div class="user-msg-container">
           <div class="user-msg-text">Hello!</div>
         </div>
-      </div>
+      </div> -->
       <div class="canvas-msg-div">
         <div class="canvas-msg-container">
           <div class="canvas-msg-text">
@@ -100,13 +100,12 @@
         </div>
       </div>
 
-      <!-- Message Pair 2 -->
-      <div class="user-msg-div">
+       <div class="user-msg-div">
         <div class="user-msg-container">
           <div class="user-msg-text">What is that amazing typing format?</div>
         </div>
       </div>
-      <div class="canvas-msg-div">
+      <!-- <div class="canvas-msg-div">
         <div class="canvas-msg-container">
           <div class="canvas-msg-text">
             <div class="typewriter">
@@ -114,18 +113,23 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>  -->
 
     <div class="inputArea">
-        <input id="text-input" class="textareaElement" style="display: inline-block; width: 75%;" contenteditable>
+        <input id="text-input" class="textareaElement" style="display: inline-block; width: 75%;" contenteditable> 
     </input>
         <div class="send-msg-button" style="display: inline-block; width: 10%;">
-            <button id="send-button">
-                <img src="https://www.iconninja.com/files/976/97/258/send-icon.png" width="25" height="25" border="0">
+            <button>
+                <img src="https://www.iconninja.com/files/976/97/258/send-icon.png" width="25" height="25" border="0" alt="send" />
             </button>
         </div>
     </div>
 
-    <script src="../js/ai.js"></script>
+    <script type="importmap">
+      {"imports": {
+        "@google/generative-ai": "https://esm.run/@google/generative-ai"
+      }}
+    </script>
+    <script type="module" src="../js/ai.js"></script>
   </body>
 </html>

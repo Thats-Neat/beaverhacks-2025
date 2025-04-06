@@ -1,7 +1,6 @@
-import dotenv from "dotenv";
-dotenv.config();
+import { GEMINI_API_KEY } from "./config.js"
 
-const apiKey = process.env.GEMINI_API_KEY;
+const apiKey = GEMINI_API_KEY
 
 const url =
   "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro-latest:generateContent?key=" +
@@ -11,20 +10,18 @@ const headers = {
   "Content-Type": "application/json",
 };
 
-const body = {
-  contents: [
-    {
-      parts: [
-        {
-          text: "What is your name?"
-        },
-      ],
-    },
-  ],
-};
-
-
-async function main() {
+export async function AICall(toAsk) {
+  const body = {
+    contents: [
+      {
+        parts: [
+          {
+            text: toAsk
+          },
+        ],
+      },
+    ],
+  };
   const res = await fetch(url, {
     method: "POST",
     headers,
@@ -33,7 +30,5 @@ async function main() {
   const json = await res.json();
   console.log(json);
   const text = json.candidates?.[0]?.content?.parts?.[0]?.text || "No response";
-  console.log("AI RESPONCE: ", text);
+  console.log(text);
 }
-
-main();
